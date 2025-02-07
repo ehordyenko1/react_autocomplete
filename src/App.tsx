@@ -11,7 +11,7 @@ export const App: React.FC = () => {
   const [isActive, setIsActive] = useState(false);
 
   // Фильтрация по debouncedQuery
-  const filtredPeople: Person[] = peopleFromServer.filter(person =>
+  const filteredPeople: Person[] = peopleFromServer.filter(person =>
     person.name.toLowerCase().includes(debouncedQuery.trim().toLowerCase()),
   );
 
@@ -68,7 +68,7 @@ export const App: React.FC = () => {
 
           <div className="dropdown-menu" role="menu" data-cy="suggestions-list">
             <div className="dropdown-content">
-              {filtredPeople.map(person => (
+              {filteredPeople.map(person => (
                 <div
                   key={person.slug}
                   className="dropdown-item has-text-link"
@@ -82,7 +82,7 @@ export const App: React.FC = () => {
           </div>
         </div>
 
-        {filtredPeople.length === 0 && query.trim() && (
+        {filteredPeople.length === 0 && query.trim() && (
           <div
             className="
             notification is-danger is-light mt-3 is-align-self-flex-start"
